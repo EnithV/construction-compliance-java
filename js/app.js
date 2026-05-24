@@ -33,9 +33,15 @@
   }
 
   function riskClass(level) {
-    if (level === "High Risk") return "risk-high";
-    if (level === "Medium Risk") return "risk-medium";
-    return "risk-low";
+    if (level === "High Risk") return "bg-danger";
+    if (level === "Medium Risk") return "bg-warning text-dark";
+    return "bg-success";
+  }
+
+  function progressBarClass(value) {
+    if (value < 50) return "bg-danger";
+    if (value < 75) return "bg-warning";
+    return "bg-success";
   }
 
   function render(data) {
@@ -47,7 +53,15 @@
 
     const catList = document.getElementById("category-scores");
     catList.innerHTML = Object.entries(data.categoryScores)
-      .map(([k, v]) => `<li class="list-group-item d-flex justify-content-between"><span>${k}</span><strong>${v}%</strong></li>`)
+      .map(
+        ([k, v]) =>
+          `<li class="list-group-item px-0">
+            <div class="d-flex justify-content-between mb-1"><span>${k}</span><strong>${v}%</strong></div>
+            <div class="progress" style="height: 8px" role="progressbar" aria-valuenow="${v}" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-bar ${progressBarClass(v)}" style="width: ${v}%"></div>
+            </div>
+          </li>`
+      )
       .join("");
 
     const recList = document.getElementById("recommendations");

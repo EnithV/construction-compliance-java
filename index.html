@@ -12,132 +12,170 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 
-  <header class="hero">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
     <div class="container">
-      <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-3">
-        <span class="badge stack-badge">Spring Boot · REST API · Bootstrap 5 · Java 17</span>
-        <div class="d-flex gap-2">
-          <a href="index.html" class="btn btn-sm btn-light">EN</a>
-          <a href="index-es.html" class="btn btn-sm btn-outline-light">ES</a>
-        </div>
+      <a class="navbar-brand" href="#">
+        <i class="fa-solid fa-building me-2"></i>Compliance Analyzer
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item">
+            <a class="nav-link" href="#analysis-form"><i class="fa-solid fa-chart-line me-1"></i>Analyze</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/EnithV/construction-compliance-java" target="_blank" rel="noopener noreferrer"><i class="fab fa-github me-1"></i>Java repo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/EnithV/construction-compliance-analyzer" target="_blank" rel="noopener noreferrer"><i class="fab fa-python me-1"></i>Python (ML)</a>
+          </li>
+          <li class="nav-item">
+            <div class="btn-group ms-lg-2" role="group" aria-label="Language">
+              <a href="index.html" class="btn btn-sm btn-light">EN</a>
+              <a href="index-es.html" class="btn btn-sm btn-outline-light">ES</a>
+            </div>
+          </li>
+        </ul>
       </div>
-      <h1 class="display-5 fw-bold mb-2"><i class="fa-solid fa-building me-2"></i>Construction Compliance Analyzer</h1>
-      <p class="lead mb-3 col-lg-9 opacity-90">
+    </div>
+  </nav>
+
+  <header class="bg-primary text-white py-5">
+    <div class="container">
+      <span class="badge rounded-pill text-bg-light text-primary mb-3">Spring Boot · REST API · Bootstrap 5 · Java 17</span>
+      <h1 class="display-5 fw-bold mb-3">Construction Compliance Analyzer</h1>
+      <p class="lead col-lg-9 mb-3">
         Full-stack Java application for infrastructure compliance scoring and risk prediction
         aligned with Colombian regulations (NSR-10, Resolution 2115).
       </p>
-      <p class="mb-0 small opacity-75">
+      <div class="hero-sub pt-3">
         <span id="api-mode-badge" class="badge text-bg-secondary">Client engine (GitHub Pages)</span>
-        · Optional: connect to Spring Boot API at <code class="text-white">http://localhost:8080</code>
-      </p>
+        <span class="text-white-50 small ms-2">Optional: Spring Boot API at <code class="text-white">http://localhost:8080</code></span>
+      </div>
     </div>
   </header>
 
-  <main class="container py-5">
+  <main class="container py-5 flex-grow-1">
     <div class="row g-4">
       <div class="col-lg-5">
-        <div class="card card-form p-4">
-          <h2 class="h4 fw-bold mb-3">Project analysis</h2>
-          <form id="analysis-form">
-            <div class="mb-3">
-              <label class="form-label" for="projectName">Project name</label>
-              <input type="text" class="form-control" id="projectName" value="Water Treatment Plant — Phase 2" required>
-            </div>
-            <div class="mb-3">
-              <label class="form-label" for="projectType">Project type</label>
-              <select class="form-select" id="projectType">
-                <option>Residential Building</option>
-                <option selected>Water Treatment Plant</option>
-                <option>Bridge Construction</option>
-                <option>Commercial Complex</option>
-                <option>Infrastructure — Roads</option>
-              </select>
-            </div>
-            <div class="row g-2">
-              <div class="col-6">
-                <label class="form-label" for="permitScore">Permit score (0–100)</label>
-                <input type="number" class="form-control" id="permitScore" value="78" min="0" max="100">
+        <div class="card compliance-card shadow-sm">
+          <div class="card-header py-3">
+            <h2 class="h5 mb-0"><i class="fa-solid fa-clipboard-list text-primary me-2"></i>Project analysis</h2>
+          </div>
+          <div class="card-body">
+            <form id="analysis-form">
+              <div class="mb-3">
+                <label class="form-label" for="projectName">Project name</label>
+                <input type="text" class="form-control" id="projectName" value="Water Treatment Plant — Phase 2" required>
               </div>
-              <div class="col-6">
-                <label class="form-label" for="qualityScore">Quality score (0–100)</label>
-                <input type="number" class="form-control" id="qualityScore" value="82" min="0" max="100">
+              <div class="mb-3">
+                <label class="form-label" for="projectType">Project type</label>
+                <select class="form-select" id="projectType">
+                  <option>Residential Building</option>
+                  <option selected>Water Treatment Plant</option>
+                  <option>Bridge Construction</option>
+                  <option>Commercial Complex</option>
+                  <option>Infrastructure — Roads</option>
+                </select>
               </div>
-            </div>
-            <div class="mb-3 mt-2">
-              <label class="form-label" for="safetyIncidents">Safety incidents</label>
-              <input type="number" class="form-control" id="safetyIncidents" value="1" min="0" max="20">
-            </div>
-            <div class="row g-2">
-              <div class="col-6">
-                <label class="form-label" for="budgetVariance">Budget variance %</label>
-                <input type="number" class="form-control" id="budgetVariance" value="-8" min="-50" max="50">
+              <div class="row g-2 mb-3">
+                <div class="col-6">
+                  <label class="form-label" for="permitScore">Permit score (0–100)</label>
+                  <input type="number" class="form-control" id="permitScore" value="78" min="0" max="100">
+                </div>
+                <div class="col-6">
+                  <label class="form-label" for="qualityScore">Quality score (0–100)</label>
+                  <input type="number" class="form-control" id="qualityScore" value="82" min="0" max="100">
+                </div>
               </div>
-              <div class="col-6">
-                <label class="form-label" for="scheduleVariance">Schedule variance %</label>
-                <input type="number" class="form-control" id="scheduleVariance" value="12" min="-50" max="50">
+              <div class="mb-3">
+                <label class="form-label" for="safetyIncidents">Safety incidents</label>
+                <input type="number" class="form-control" id="safetyIncidents" value="1" min="0" max="20">
               </div>
-            </div>
-            <div class="row g-2 mt-2">
-              <div class="col-6">
-                <label class="form-label" for="environmentalComplexity">Environmental complexity (1–5)</label>
-                <input type="number" class="form-control" id="environmentalComplexity" value="3" min="1" max="5">
+              <div class="row g-2 mb-3">
+                <div class="col-6">
+                  <label class="form-label" for="budgetVariance">Budget variance %</label>
+                  <input type="number" class="form-control" id="budgetVariance" value="-8" min="-50" max="50">
+                </div>
+                <div class="col-6">
+                  <label class="form-label" for="scheduleVariance">Schedule variance %</label>
+                  <input type="number" class="form-control" id="scheduleVariance" value="12" min="-50" max="50">
+                </div>
               </div>
-              <div class="col-6">
-                <label class="form-label" for="contractorExperience">Contractor experience (years)</label>
-                <input type="number" class="form-control" id="contractorExperience" value="8" min="0" max="40">
+              <div class="row g-2 mb-3">
+                <div class="col-6">
+                  <label class="form-label" for="environmentalComplexity">Environmental complexity (1–5)</label>
+                  <input type="number" class="form-control" id="environmentalComplexity" value="3" min="1" max="5">
+                </div>
+                <div class="col-6">
+                  <label class="form-label" for="contractorExperience">Contractor experience (years)</label>
+                  <input type="number" class="form-control" id="contractorExperience" value="8" min="0" max="40">
+                </div>
               </div>
-            </div>
-            <button type="submit" class="btn btn-primary w-100 mt-3">
-              <i class="fa-solid fa-magnifying-glass-chart me-2"></i>Analyze compliance
-            </button>
-          </form>
+              <button type="submit" class="btn btn-primary w-100 btn-lg">
+                <i class="fa-solid fa-magnifying-glass-chart me-2"></i>Analyze compliance
+              </button>
+            </form>
+          </div>
         </div>
       </div>
 
       <div class="col-lg-7">
-        <div id="results-panel" class="card card-results p-4 d-none">
-          <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
-            <h2 class="h4 fw-bold mb-0" id="result-title">Results</h2>
-            <span id="risk-badge" class="badge fs-6 risk-low">Low Risk</span>
+        <div id="results-panel" class="card compliance-card shadow-sm d-none mb-4">
+          <div class="card-header d-flex flex-wrap justify-content-between align-items-center gap-2 py-3">
+            <h2 class="h5 mb-0" id="result-title">Results</h2>
+            <span id="risk-badge" class="badge fs-6 bg-success">Low Risk</span>
           </div>
-          <p class="text-muted small mb-2">Overall compliance score</p>
-          <p class="score-ring mb-4" id="score-value">0%</p>
-          <h3 class="h6 fw-semibold">Category scores</h3>
-          <ul class="list-group list-group-flush mb-4" id="category-scores"></ul>
-          <h3 class="h6 fw-semibold">Recommendations</h3>
-          <ul class="mb-4" id="recommendations"></ul>
-          <h3 class="h6 fw-semibold">Regulations applied</h3>
-          <ul class="mb-0" id="regulations"></ul>
+          <div class="card-body">
+            <p class="text-muted small mb-1">Overall compliance score</p>
+            <p class="score-display mb-4" id="score-value">0%</p>
+            <h3 class="h6 fw-semibold text-primary">Category scores</h3>
+            <ul class="list-group list-group-flush mb-4" id="category-scores"></ul>
+            <h3 class="h6 fw-semibold text-primary">Recommendations</h3>
+            <ul class="recommendations-list mb-4" id="recommendations"></ul>
+            <h3 class="h6 fw-semibold text-primary">Regulations applied</h3>
+            <ul class="list-unstyled mb-0 small text-secondary" id="regulations"></ul>
+          </div>
         </div>
 
-        <div class="card card-form p-4 mt-4" id="architecture-card">
-          <h2 class="h5 fw-bold mb-3">Full-stack architecture</h2>
-          <span class="arch-pill">HTML5</span>
-          <span class="arch-pill">Bootstrap 5</span>
-          <span class="arch-pill">JavaScript</span>
-          <span class="arch-pill">Spring Boot 3</span>
-          <span class="arch-pill">REST API</span>
-          <span class="arch-pill">Maven</span>
-          <span class="arch-pill">JUnit 5</span>
-          <p class="text-secondary small mt-3 mb-2">
-            <strong>GitHub Pages</strong> hosts the dashboard. The <strong>Java backend</strong> exposes
-            <code>POST /api/analyze</code> with the same business rules — run locally for full-stack demo.
-          </p>
-          <a href="https://github.com/EnithV/construction-compliance-analyzer" class="btn btn-sm btn-outline-secondary me-2" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-python me-1"></i>Python version (ML)
-          </a>
-          <a href="https://github.com/EnithV/construction-compliance-java" class="btn btn-sm btn-outline-primary" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-github me-1"></i>Java repository
-          </a>
+        <div class="card compliance-card shadow-sm" id="architecture-card">
+          <div class="card-header py-3">
+            <h2 class="h5 mb-0"><i class="fa-solid fa-sitemap text-primary me-2"></i>Full-stack architecture</h2>
+          </div>
+          <div class="card-body">
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <span class="badge text-bg-primary">HTML5</span>
+              <span class="badge text-bg-primary">Bootstrap 5</span>
+              <span class="badge text-bg-secondary">JavaScript</span>
+              <span class="badge text-bg-secondary">Spring Boot 3</span>
+              <span class="badge text-bg-secondary">REST API</span>
+              <span class="badge text-bg-secondary">Maven</span>
+              <span class="badge text-bg-secondary">JUnit 5</span>
+            </div>
+            <p class="text-secondary small mb-3">
+              <strong>GitHub Pages</strong> hosts this Bootstrap dashboard. The <strong>Java backend</strong> exposes
+              <code>POST /api/analyze</code> with the same business rules — run locally for full-stack demo.
+            </p>
+            <div class="d-flex flex-wrap gap-2">
+              <a href="https://github.com/EnithV/construction-compliance-analyzer" class="btn btn-outline-secondary" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-python me-1"></i>Python version (ML)
+              </a>
+              <a href="https://github.com/EnithV/construction-compliance-java" class="btn btn-outline-primary" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github me-1"></i>Java repository
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </main>
 
-  <footer class="site-footer text-center">
-    <div class="container">
+  <footer class="bg-dark text-white-50 py-4 mt-auto">
+    <div class="container text-center">
       <p class="mb-0 small">&copy; 2026 Gicela Vargas · Construction Compliance Analyzer (Java)</p>
     </div>
   </footer>
