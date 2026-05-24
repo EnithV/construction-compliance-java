@@ -1,0 +1,57 @@
+:root {
+  --primary: #1e3a5f;
+  --accent: #3498db;
+  --high: #c0392b;
+  --medium: #d68910;
+  --low: #1e8449;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  background: #f4f6f9;
+  color: #1a1a2e;
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--primary) 0%, #2c5282 50%, #34495e 100%);
+  color: #fff;
+  padding: 4rem 0 3rem;
+}
+
+.stack-badge {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.card-form, .card-results {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(30, 58, 95, 0.08);
+}
+
+.score-ring {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.risk-high { background: var(--high); }
+.risk-medium { background: var(--medium); color: #1a1a2e; }
+.risk-low { background: var(--low); }
+
+.arch-pill {
+  font-size: 0.8rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  background: #e8eef5;
+  color: var(--primary);
+  margin: 0.15rem;
+  display: inline-block;
+}
+
+footer.site-footer {
+  background: var(--primary);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
