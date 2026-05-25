@@ -3,175 +3,245 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Full-Stack Java — Analizador de cumplimiento en construcción. API REST Spring Boot + panel Bootstrap. NSR-10, Resolución 2115.">
+  <meta name="description" content="Full-Stack Java — Analizador de cumplimiento en construcción. API REST Spring Boot + panel profesional. NSR-10, Resolución 2115.">
   <title>Analizador de Cumplimiento | Full-Stack Java</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body class="compliance-app d-flex flex-column min-vh-100">
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
+  <a href="#main" class="skip-link">Saltar al contenido principal</a>
+
+  <nav class="navbar navbar-expand-lg navbar-dark site-nav sticky-top" aria-label="Navegación principal">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <i class="fa-solid fa-building me-2"></i>Analizador de Cumplimiento
+        <i class="fa-solid fa-helmet-safety me-2 brand-accent" aria-hidden="true"></i>
+        Analizador<span class="brand-accent">Cumplimiento</span>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir menú">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+        aria-controls="mainNav" aria-expanded="false" aria-label="Abrir menú">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="mainNav">
         <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
           <li class="nav-item">
-            <a class="nav-link" href="#analysis-form"><i class="fa-solid fa-chart-line me-1"></i>Analizar</a>
+            <a class="nav-link" href="#analysis-form"><i class="fa-solid fa-chart-line me-1" aria-hidden="true"></i>Analizar</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://github.com/EnithV/construction-compliance-java" target="_blank" rel="noopener noreferrer"><i class="fab fa-github me-1"></i>Repo Java</a>
+            <a class="nav-link" href="https://github.com/EnithV/construction-compliance-java" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github me-1" aria-hidden="true"></i>Repo Java
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://github.com/EnithV/construction-compliance-analyzer" target="_blank" rel="noopener noreferrer"><i class="fab fa-python me-1"></i>Python (ML)</a>
+            <a class="nav-link" href="https://github.com/EnithV/construction-compliance-analyzer" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-python me-1" aria-hidden="true"></i>Python (ML)
+            </a>
           </li>
-          <li class="nav-item">
-            <div class="btn-group ms-lg-2" role="group" aria-label="Idioma">
-              <a href="index.html" class="btn btn-sm btn-outline-light">EN</a>
-              <a href="index-es.html" class="btn btn-sm btn-light">ES</a>
-            </div>
+          <li class="nav-item ms-lg-2 d-flex gap-1">
+            <a href="index.html" class="btn btn-sm btn-outline-light lang-pill">EN</a>
+            <a href="index-es.html" class="btn btn-sm lang-pill active" aria-current="page">ES</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <header class="bg-primary text-white py-5">
+  <header class="hero-section">
     <div class="container">
-      <span class="badge rounded-pill text-bg-light text-primary mb-3">Spring Boot · API REST · Bootstrap 5 · Java 17</span>
-      <h1 class="display-5 fw-bold mb-3">Analizador de Cumplimiento en Construcción</h1>
-      <p class="lead col-lg-9 mb-3">
-        Aplicación full-stack Java para puntuación de cumplimiento y predicción de riesgo en infraestructura,
-        alineada con normativa colombiana (NSR-10, Resolución 2115).
+      <span class="hero-eyebrow">
+        <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+        Spring Boot · API REST · Bootstrap 5 · Java 17
+      </span>
+      <h1 class="hero-title">Analizador de Cumplimiento en Construcción</h1>
+      <p class="hero-lead mb-0">
+        Plataforma full-stack Java para puntuación de cumplimiento y predicción de riesgo en infraestructura —
+        alineada con normativa de ingeniería civil colombiana (NSR-10, Resolución 2115).
       </p>
-      <div class="hero-sub pt-3">
-        <div class="d-flex flex-wrap align-items-center gap-2 gap-md-3">
-          <span id="api-mode-badge" class="badge text-bg-secondary">Motor en el navegador (GitHub Pages)</span>
-          <span class="text-white-50 small">
-            Opcional: API Spring Boot en
-            <code class="d-inline-block text-white bg-dark bg-opacity-25 px-2 py-1 rounded ms-1">http://localhost:8080</code>
-          </span>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <i class="fa-solid fa-scale-balanced d-block" aria-hidden="true"></i>
+          <strong>NSR-10 y 2115</strong>
+          <span>Marco normativo</span>
         </div>
+        <div class="hero-stat">
+          <i class="fa-solid fa-server d-block" aria-hidden="true"></i>
+          <strong>API REST</strong>
+          <span>Backend Spring Boot</span>
+        </div>
+        <div class="hero-stat">
+          <i class="fa-solid fa-hard-hat d-block" aria-hidden="true"></i>
+          <strong>Civil + Dev</strong>
+          <span>Ingeniería y full-stack</span>
+        </div>
+      </div>
+      <div class="hero-api-row">
+        <span id="api-mode-badge" class="badge text-bg-secondary">Motor en el navegador (GitHub Pages)</span>
+        <span class="small opacity-75">
+          API Spring Boot opcional:
+          <code>http://localhost:8080</code>
+        </span>
       </div>
     </div>
   </header>
 
-  <main class="container py-5 flex-grow-1">
-    <div class="row g-4">
-      <div class="col-lg-5">
-        <div class="card compliance-card shadow-sm">
-          <div class="card-header py-3">
-            <h2 class="h5 mb-0"><i class="fa-solid fa-clipboard-list text-primary me-2"></i>Análisis del proyecto</h2>
-          </div>
-          <div class="card-body">
-            <form id="analysis-form">
-              <div class="mb-3">
-                <label class="form-label" for="projectName">Nombre del proyecto</label>
-                <input type="text" class="form-control" id="projectName" value="Planta de Tratamiento — Fase 2" required>
-              </div>
-              <div class="mb-3">
-                <label class="form-label" for="projectType">Tipo de proyecto</label>
-                <select class="form-select" id="projectType">
-                  <option>Edificio residencial</option>
-                  <option selected>Planta de tratamiento</option>
-                  <option>Puente</option>
-                  <option>Complejo comercial</option>
-                  <option>Infraestructura vial</option>
-                </select>
-              </div>
-              <div class="row g-2 mb-3">
-                <div class="col-6">
-                  <label class="form-label" for="permitScore">Puntuación permisos (0–100)</label>
-                  <input type="number" class="form-control" id="permitScore" value="78" min="0" max="100">
-                </div>
-                <div class="col-6">
-                  <label class="form-label" for="qualityScore">Puntuación calidad (0–100)</label>
-                  <input type="number" class="form-control" id="qualityScore" value="82" min="0" max="100">
-                </div>
-              </div>
-              <div class="mb-3">
-                <label class="form-label" for="safetyIncidents">Incidentes de seguridad</label>
-                <input type="number" class="form-control" id="safetyIncidents" value="1" min="0" max="20">
-              </div>
-              <div class="row g-2 mb-3">
-                <div class="col-6">
-                  <label class="form-label" for="budgetVariance">Variación presupuesto %</label>
-                  <input type="number" class="form-control" id="budgetVariance" value="-8" min="-50" max="50">
-                </div>
-                <div class="col-6">
-                  <label class="form-label" for="scheduleVariance">Variación cronograma %</label>
-                  <input type="number" class="form-control" id="scheduleVariance" value="12" min="-50" max="50">
-                </div>
-              </div>
-              <div class="row g-2 mb-3">
-                <div class="col-6">
-                  <label class="form-label" for="environmentalComplexity">Complejidad ambiental (1–5)</label>
-                  <input type="number" class="form-control" id="environmentalComplexity" value="3" min="1" max="5">
-                </div>
-                <div class="col-6">
-                  <label class="form-label" for="contractorExperience">Experiencia contratista (años)</label>
-                  <input type="number" class="form-control" id="contractorExperience" value="8" min="0" max="40">
-                </div>
-              </div>
-              <button type="submit" class="btn btn-primary w-100 btn-lg">
-                <i class="fa-solid fa-magnifying-glass-chart me-2"></i>Analizar cumplimiento
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-7">
-        <div id="results-panel" class="card compliance-card shadow-sm d-none mb-4">
-          <div class="card-header d-flex flex-wrap justify-content-between align-items-center gap-2 py-3">
-            <h2 class="h5 mb-0" id="result-title">Resultados</h2>
-            <span id="risk-badge" class="badge fs-6 bg-success">Riesgo bajo</span>
-          </div>
-          <div class="card-body">
-            <p class="text-muted small mb-1">Puntuación global de cumplimiento</p>
-            <p class="score-display mb-4" id="score-value">0%</p>
-            <h3 class="h6 fw-semibold text-primary">Puntuación por categoría</h3>
-            <ul class="list-group list-group-flush mb-4" id="category-scores"></ul>
-            <h3 class="h6 fw-semibold text-primary">Recomendaciones</h3>
-            <ul class="recommendations-list mb-4" id="recommendations"></ul>
-            <h3 class="h6 fw-semibold text-primary">Normativa aplicada</h3>
-            <ul class="list-unstyled mb-0 small text-secondary" id="regulations"></ul>
-          </div>
-        </div>
-
-        <div class="card compliance-card shadow-sm" id="architecture-card">
-          <div class="card-header py-3">
-            <h2 class="h5 mb-0"><i class="fa-solid fa-sitemap text-primary me-2"></i>Arquitectura full-stack</h2>
-          </div>
-          <div class="card-body">
-            <div class="d-flex flex-wrap gap-2 mb-3">
-              <span class="badge text-bg-primary">HTML5</span>
-              <span class="badge text-bg-primary">Bootstrap 5</span>
-              <span class="badge text-bg-secondary">JavaScript</span>
-              <span class="badge text-bg-secondary">Spring Boot 3</span>
-              <span class="badge text-bg-secondary">API REST</span>
-              <span class="badge text-bg-secondary">Maven</span>
-              <span class="badge text-bg-secondary">JUnit 5</span>
+  <main id="main" class="main-dashboard flex-grow-1">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <div class="card compliance-card">
+            <div class="card-header">
+              <h2 class="h5"><i class="fa-solid fa-clipboard-list header-icon me-2" aria-hidden="true"></i>Análisis del proyecto</h2>
             </div>
-            <p class="text-secondary small mb-3">
-              <strong>GitHub Pages</strong> aloja este panel Bootstrap. El <strong>backend Java</strong> expone
-              <code>POST /api/analyze</code> con las mismas reglas de negocio — ejecútalo en local para la demo full-stack.
-            </p>
-            <div class="d-flex flex-wrap gap-2">
-              <a href="https://github.com/EnithV/construction-compliance-analyzer" class="btn btn-outline-secondary" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-python me-1"></i>Versión Python (ML)
-              </a>
-              <a href="https://github.com/EnithV/construction-compliance-java" class="btn btn-outline-primary" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-github me-1"></i>Repositorio Java
-              </a>
+            <div class="card-body">
+              <form id="analysis-form">
+                <p class="form-section-label">Identidad del proyecto</p>
+                <div class="mb-3">
+                  <label class="form-label" for="projectName">Nombre del proyecto</label>
+                  <input type="text" class="form-control" id="projectName" value="Planta de Tratamiento — Fase 2" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="projectType">Tipo de proyecto</label>
+                  <select class="form-select" id="projectType">
+                    <option>Edificio residencial</option>
+                    <option selected>Planta de tratamiento</option>
+                    <option>Puente</option>
+                    <option>Complejo comercial</option>
+                    <option>Infraestructura vial</option>
+                  </select>
+                </div>
+
+                <p class="form-section-label">Métricas de cumplimiento</p>
+                <div class="row g-2 mb-3">
+                  <div class="col-6">
+                    <label class="form-label" for="permitScore">Puntuación permisos (0–100)</label>
+                    <input type="number" class="form-control" id="permitScore" value="78" min="0" max="100">
+                  </div>
+                  <div class="col-6">
+                    <label class="form-label" for="qualityScore">Puntuación calidad (0–100)</label>
+                    <input type="number" class="form-control" id="qualityScore" value="82" min="0" max="100">
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="safetyIncidents">Incidentes de seguridad</label>
+                  <input type="number" class="form-control" id="safetyIncidents" value="1" min="0" max="20">
+                </div>
+
+                <p class="form-section-label">Desempeño y medio ambiente</p>
+                <div class="row g-2 mb-3">
+                  <div class="col-6">
+                    <label class="form-label" for="budgetVariance">Variación presupuesto %</label>
+                    <input type="number" class="form-control" id="budgetVariance" value="-8" min="-50" max="50">
+                  </div>
+                  <div class="col-6">
+                    <label class="form-label" for="scheduleVariance">Variación cronograma %</label>
+                    <input type="number" class="form-control" id="scheduleVariance" value="12" min="-50" max="50">
+                  </div>
+                </div>
+                <div class="row g-2 mb-4">
+                  <div class="col-6">
+                    <label class="form-label" for="environmentalComplexity">Complejidad ambiental (1–5)</label>
+                    <input type="number" class="form-control" id="environmentalComplexity" value="3" min="1" max="5">
+                  </div>
+                  <div class="col-6">
+                    <label class="form-label" for="contractorExperience">Experiencia contratista (años)</label>
+                    <input type="number" class="form-control" id="contractorExperience" value="8" min="0" max="40">
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-analyze w-100 btn-lg" id="analyze-btn">
+                  <i class="fa-solid fa-magnifying-glass-chart me-2" aria-hidden="true"></i>
+                  <span class="btn-label">Analizar cumplimiento</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div id="results-placeholder" class="results-placeholder mb-4">
+            <i class="fa-solid fa-chart-pie d-block" aria-hidden="true"></i>
+            <h3>Listo para analizar</h3>
+            <p class="mb-0 small">Completa el formulario y ejecuta el análisis para ver nivel de riesgo, desglose por categoría y recomendaciones normativas.</p>
+          </div>
+
+          <div id="results-panel" class="card compliance-card d-none mb-4">
+            <div class="card-header results-header">
+              <div>
+                <h2 class="h5 mb-1" id="result-title">Resultados</h2>
+                <span id="project-type-display" class="project-type-badge"></span>
+              </div>
+              <span id="risk-badge" class="badge bg-success">Riesgo bajo</span>
+            </div>
+            <div class="card-body">
+              <div class="score-ring-wrap">
+                <div class="score-ring" id="score-ring" style="--score: 0">
+                  <span class="score-ring-value" id="score-value">0<small>%</small></span>
+                </div>
+                <div class="score-meta">
+                  <p class="text-muted small mb-1">Puntuación global de cumplimiento</p>
+                  <p class="mb-0 fw-semibold text-secondary" id="score-summary">En espera del análisis</p>
+                </div>
+              </div>
+
+              <h3 class="results-section-title"><i class="fa-solid fa-chart-bar" aria-hidden="true"></i>Puntuación por categoría</h3>
+              <div class="category-grid" id="category-scores"></div>
+
+              <h3 class="results-section-title"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i>Recomendaciones</h3>
+              <ul class="recommendations-list" id="recommendations"></ul>
+
+              <h3 class="results-section-title"><i class="fa-solid fa-book-open" aria-hidden="true"></i>Normativa aplicada</h3>
+              <div class="regulation-chips" id="regulations"></div>
+            </div>
+          </div>
+
+          <div class="card compliance-card" id="architecture-card">
+            <div class="card-header">
+              <h2 class="h5 mb-0"><i class="fa-solid fa-sitemap header-icon me-2" aria-hidden="true"></i>Arquitectura full-stack</h2>
+            </div>
+            <div class="card-body">
+              <div class="arch-flow" aria-hidden="true">
+                <div class="arch-layer">
+                  <i class="fa-solid fa-display d-block" aria-hidden="true"></i>
+                  <strong>Frontend</strong>
+                  <span>Bootstrap 5</span>
+                </div>
+                <span class="arch-arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                <div class="arch-layer">
+                  <i class="fa-solid fa-plug d-block" aria-hidden="true"></i>
+                  <strong>REST</strong>
+                  <span>POST /api/analyze</span>
+                </div>
+                <span class="arch-arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                <div class="arch-layer">
+                  <i class="fa-solid fa-coffee d-block" aria-hidden="true"></i>
+                  <strong>Backend</strong>
+                  <span>Spring Boot 3</span>
+                </div>
+              </div>
+              <div class="tech-stack mb-3">
+                <span class="badge text-bg-primary badge-featured">Java 17</span>
+                <span class="badge text-bg-primary badge-featured">Spring Boot</span>
+                <span class="badge text-bg-secondary">API REST</span>
+                <span class="badge text-bg-secondary">Maven</span>
+                <span class="badge text-bg-secondary">JUnit 5</span>
+                <span class="badge text-bg-secondary">JavaScript</span>
+                <span class="badge text-bg-secondary">HTML5 / CSS3</span>
+              </div>
+              <p class="text-secondary small mb-3">
+                <strong>GitHub Pages</strong> aloja este panel con un motor en el cliente que replica el servicio Java.
+                Ejecuta el backend <strong>Spring Boot</strong> en local para la demo full-stack con las mismas reglas de negocio.
+              </p>
+              <div class="d-flex flex-wrap gap-2">
+                <a href="https://github.com/EnithV/construction-compliance-analyzer" class="btn btn-outline-secondary btn-sm" target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-python me-1" aria-hidden="true"></i>Versión Python (ML)
+                </a>
+                <a href="https://github.com/EnithV/construction-compliance-java" class="btn btn-outline-primary btn-sm" target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-github me-1" aria-hidden="true"></i>Repositorio Java
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -179,16 +249,21 @@
     </div>
   </main>
 
-  <footer class="bg-dark text-white-50 py-4 mt-auto">
+  <footer class="site-footer">
     <div class="container text-center">
-      <p class="mb-0 small">&copy; 2026 Gicela Vargas · Analizador de Cumplimiento (Java)</p>
+      <p class="mb-1 small">&copy; 2026 Gicela Vargas · Analizador de Cumplimiento</p>
+      <p class="mb-0 small">
+        <a href="https://github.com/EnithV/construction-compliance-java" target="_blank" rel="noopener noreferrer">GitHub</a>
+        · Ingeniería Civil · Full-Stack Java
+      </p>
     </div>
   </footer>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toast-host"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/engine.js"></script>
   <script>
-    // Descomenta con Spring Boot en local:
     // window.COMPLIANCE_API_URL = "http://localhost:8080";
   </script>
   <script src="js/app.js"></script>
